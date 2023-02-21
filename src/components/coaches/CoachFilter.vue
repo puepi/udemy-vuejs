@@ -1,0 +1,20 @@
+<template>
+    <base-card>
+        <h2>Find your coach</h2>
+        <span class="filter-options">
+            <input type="checkbox" id="frontend" checked />
+            <label for="frontend">Frontend</label>
+        </span>
+        <span class="filter-options">
+            <input type="checkbox" id="backend" checked />
+            <label for="backend">Backend</label>
+        </span>
+        <span class="filter-options">
+            <input type="checkbox" id="career" checked />
+            <label for="career">Career</label>
+        </span>
+    </base-card>
+</template>
+<script>
+
+</script>
