@@ -1,16 +1,17 @@
 <template>
-    <form>
+    <form @submit.prevent="submitForm">
         <div class="form-control">
             <label for="email">Your E-mail</label>
-            <input type="email" id="email"/>
+            <input type="email" id="email" v-model.trim="emai"/>
         </div>
         <div class="form-control">
             <label for="message">Message</label>
-            <textarea rows="5" id="message"></textarea>
+            <textarea rows="5" id="message" v-model.trim="message"></textarea>
         </div>
         <div class="actions">
             <base-button>Send a message</base-button>
         </div>
+        <p :class="errors" v-if="!formIsValid">Please enter a valid email and not empty message</p>
     </form>
 </template>
 <script>
@@ -18,7 +19,17 @@
         data(){
             return{
                 email:'',
-                message:''
+                message:'',
+                formIsValid:true
+            }
+        },
+        methods:{
+            submitForm(){
+                this.formIsValid=true
+                if(this.email==='' || !this.email.includes('@') || this.message===''){
+                    this.formIsValid=false
+                    return
+                }
             }
         }
     }
