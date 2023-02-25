@@ -71,7 +71,11 @@
         },
         methods:{
           clearValidity(input){
-            this[input].isValid=true
+            if(this[input].isValid)
+              { this[input].isValid=true}
+            else{
+              this[input].isValid=false
+            }
           },
           validateForm(){
             this.formIsValid=true
